@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'">
+<title>Wi-Fi Lab · Libro de estilo</title>
+<link rel="stylesheet" href="css/01-tokens.css">
+<link rel="stylesheet" href="css/09-icons.css">
+<style>
+body{margin:0;padding:1.4rem 1.6rem 3rem;background:var(--bg);color:var(--t);font:15px/1.5 Inter,"Segoe UI",system-ui,sans-serif;max-width:1200px;margin-inline:auto}
+h1{margin:.2rem 0;font-size:2rem;letter-spacing:-.02em} h2{margin:2.2rem 0 .7rem;border-bottom:1px solid var(--b);padding-bottom:.35rem;font-size:1.3rem}
+p.s{color:var(--m);margin:.2rem 0 .8rem} code{background:var(--s2);padding:.05rem .35rem;border-radius:4px;color:var(--tx)}
+nav a{color:var(--tx);margin-right:1rem;text-decoration:none} nav{margin:.6rem 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem}
+.card{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:.6rem;text-align:center}
+.card canvas{width:100%;aspect-ratio:1;border-radius:6px;background:repeating-conic-gradient(#222 0 25%,#2c2c2c 0 50%) 0 0/16px 16px;display:block}
+.card b{display:block;margin-top:.4rem} .card small{color:var(--m)}
+.ic{width:34px;height:34px;color:var(--tx)}
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.6rem}
+.ic1{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:.6rem .3rem;text-align:center;font-size:.75rem;color:var(--m);word-break:break-all}
+.dev .ic{color:#fff} .dev .bd{width:54px;height:54px;border-radius:50%;margin:0 auto .3rem;display:flex;align-items:center;justify-content:center;background:#2f7fe0}
+.dev .bd .ic{width:32px;height:32px}
+.wall{display:flex;gap:1rem;flex-wrap:wrap} .wall canvas{border:1px solid var(--b);border-radius:8px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem}
+.sw div{border-radius:10px;padding:.7rem .6rem;border:1px solid var(--b);font-size:.8rem;min-height:4.4rem;display:flex;flex-direction:column;justify-content:flex-end}
+.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.th{border-radius:14px;padding:1rem;background:var(--bg);color:var(--t);border:1px solid var(--b)}
+.th .row{display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0}.th .row i{width:2rem;height:2rem;border-radius:8px;border:1px solid var(--b);display:block}
+.th .pan{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:.6rem;box-shadow:var(--sh1)}
+.th .btn{display:inline-block;padding:.35rem .8rem;border-radius:9px;background:var(--btn-grad);color:var(--btn-ink);font-weight:700;margin-top:.5rem}
+.type div{margin:.3rem 0}
+.audit{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:.6rem .9rem}.audit li{margin:.15rem 0}
+.rules li{margin:.25rem 0}
+</style>
+</head>
+<body>
+<h1>Libro de estilo · Wi-Fi Lab</h1>
+<p class="s">Referencia visual del proyecto: colores por tema, tipografía, componentes, texturas e iconos. Edita un archivo de <code>assets/textures/</code>, <code>assets/icons/</code> o <code>css/01-tokens.css</code>, guarda y recarga (F5) para ver el resultado sin abrir el simulador.</p>
+<nav><a href="#temas">Temas</a><a href="#tipo">Tipografía</a><a href="#comp">Componentes</a><a href="#tex">Texturas</a><a href="#suelos">Suelos</a><a href="#dev">Dispositivos</a><a href="#mat">Materiales</a><a href="#ui">Interfaz</a><a href="#audit">Auditoría de iconos</a></nav>
+
+<h2 id="temas">Temas (5)</h2>
+<p class="s">Cada tema redefine los mismos tokens (<code>--bg</code>, <code>--p</code>, <code>--tx</code>…). Para crear uno nuevo copia un bloque <code>[data-theme=…]</code> de <code>css/01-tokens.css</code> y añade su id a <code>THEMES</code> en <code>js/ui/polish.js</code>.</p>
+<div class="themes" id="themes"></div>
+
+<h2 id="tipo">Tipografía</h2>
+<div class="type">
+  <div style="font-size:2rem;font-weight:800;letter-spacing:-.02em">Wi-Fi Lab · Título 2rem / 800</div>
+  <div style="font-size:1.3rem;font-weight:650">Subtítulo de sección 1.3rem / 650</div>
+  <div>Texto base 15 px / 1.5 — La señal se atenúa 6 dB cada vez que se duplica la distancia.</div>
+  <div style="color:var(--m);font-size:.85rem">Texto auxiliar 0.85rem — estimación simplificada, no es una predicción exacta.</div>
+  <div style="font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;font-size:1.4rem;font-weight:700">−67.2 dBm · 172 Mbps · 28 dB &nbsp;<small style="font:500 .8rem Inter,sans-serif;color:var(--m)">(cifras tabulares: no «bailan» al cambiar)</small></div>
+</div>
+
+<h2 id="comp">Componentes</h2>
+<div class="th" style="display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center">
+  <span class="btn">Botón primario</span>
+  <span style="padding:.35rem .8rem;border-radius:9px;background:var(--s2);border:1px solid var(--b)">Botón normal</span>
+  <span style="padding:.35rem .8rem;border-radius:9px;background:color-mix(in srgb,var(--tx) 24%,var(--s2));border:1px solid var(--tx)">Botón activo</span>
+  <span style="width:9rem;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--tx) 60%,var(--b) 60%);display:inline-block"></span>
+  <span style="padding:.25rem .8rem;border-radius:999px;border:1.5px solid var(--ok);color:var(--ok)">Excelente</span>
+  <div class="pan" style="min-width:12rem">Tarjeta con<br>sombra de dos capas</div>
+</div>
+
+<h2 id="tex">Texturas de pared (1 m × 1 m, se repiten por toda la pared)</h2>
+<p class="s">Con relieve simulado (<code>bump</code>) y a tres resoluciones: 128 px (plano 2D), 256 px (estándar) y 512 px (3D de cerca). Cambia el selector para compararlas.</p>
+<p><label>Resolución <select id="res"><option>128</option><option selected>256</option><option>512</option></select></label></p>
+<div class="grid" id="tx"></div>
+<h2>Vista de pared en 3D (3 m × 2.8 m, 3 repeticiones)</h2>
+<div class="wall" id="walls"></div>
+<h2 id="suelos">Suelos (prefijo <code>floor_</code>)</h2>
+<div class="grid" id="fl"></div>
+
+<h2 id="dev">Iconos de dispositivos (blancos sobre círculo de color en el plano)</h2>
+<p class="s">Los sufijos <code>_v2</code> son duotono (<code>class="d"</code>) y sus ondas se animan con <code>{anim:true}</code>.</p>
+<div class="ig dev" id="dev"></div>
+<h2 id="mat">Iconos de materiales (duotono)</h2>
+<div class="ig" id="mat"></div>
+<h2 id="ui">Iconos de interfaz</h2>
+<div class="ig" id="ui"></div>
+
+<h2 id="audit">Auditoría automática de iconos</h2>
+<p class="s">Reglas: viewBox 24×24 · trazo 1.8 · extremos y uniones redondeados · <code>currentColor</code> (nada de colores fijos) · acentos con <code>class="d"</code>. Excepciones aceptadas: trofeo y medallas (llevan color propio).</p>
+<div class="audit" id="audit"></div>
+<ul class="rules"><li><b>Grosor:</b> el motor aplica trazo 1.8 a todos; puntos decorativos usan 2.2–2.6.</li><li><b>Esquinas:</b> <code>stroke-linecap/linejoin: round</code> siempre.</li><li><b>Proporción:</b> el dibujo ocupa ~20×20 dentro del lienzo 24×24 (margen de 2 px).</li><li><b>Duotono:</b> una sola forma de relleno suave por icono (<code>class="d"</code>).</li></ul>
+
+<script src="js/data/materials.js"></script>
+<script src="js/render/textures.js"></script>
+<script src="js/render/icons.js"></script>
+<script src="assets/textures/body.js"></script>
+<script src="assets/textures/brick.js"></script>
+<script src="assets/textures/brick_white.js"></script>
+<script src="assets/textures/concrete.js"></script>
+<script src="assets/textures/drywall.js"></script>
+<script src="assets/textures/false_ceiling.js"></script>
+<script src="assets/textures/floor_carpet.js"></script>
+<script src="assets/textures/floor_concrete.js"></script>
+<script src="assets/textures/floor_tile.js"></script>
+<script src="assets/textures/floor_wood.js"></script>
+<script src="assets/textures/glass.js"></script>
+<script src="assets/textures/glass_film.js"></script>
+<script src="assets/textures/glass_tempered.js"></script>
+<script src="assets/textures/green_wall.js"></script>
+<script src="assets/textures/marble.js"></script>
+<script src="assets/textures/mesh.js"></script>
+<script src="assets/textures/metal.js"></script>
+<script src="assets/textures/plaster.js"></script>
+<script src="assets/textures/wood.js"></script>
+<script src="assets/textures/wood_dark.js"></script>
+<script src="assets/textures/wood_glass.js"></script>
+<script src="assets/icons/ui/acciones.js"></script>
+<script src="assets/icons/ui/medios.js"></script>
+<script src="assets/icons/ui/estado.js"></script>
+<script src="assets/icons/ui/educacion.js"></script>
+<script src="assets/icons/ui/fisica.js"></script>
+<script src="assets/icons/ui/_emoji-map.js"></script>
+<script src="assets/icons/devices/routers.js"></script>
+<script src="assets/icons/devices/clients.js"></script>
+<script src="assets/icons/devices/equipos_v2.js"></script>
+<script src="assets/icons/materials/materiales.js"></script>
+<script>
+const $=i=>document.getElementById(i);
+const TH=[['dark','Oscuro'],['light','Claro'],['contrast','Alto contraste'],['neon','Neón'],['blueprint','Plano (blueprint)']];
+const TOK=['--bg','--p','--p2','--tx','--rx','--am','--pu','--rd','--ok'];
+$('themes').innerHTML=TH.map(([k,n])=>`<div class="th" data-theme="${k}"><b>${n}</b> <small style="color:var(--m)">data-theme="${k}"</small>
+ <div class="row">${TOK.map(t=>`<i style="background:var(${t})" title="${t}"></i>`).join('')}</div>
+ <div class="pan">Panel · <span style="color:var(--tx)">acento</span> · <span style="color:var(--rx)">señal</span> · <span style="color:var(--am)">aviso</span></div>
+ <span class="btn">Botón</span></div>`).join('');
+const ids=[...new Set([...Object.keys(MATERIALS),...Textures.list().filter(i=>!i.startsWith('floor_'))])];
+function drawTex(){const px=+$('res').value;
+ $('tx').innerHTML=ids.map(id=>`<div class="card"><canvas data-t="${id}" width="${px}" height="${px}"></canvas><b>${id}</b><small>${(MATERIALS[id]||{}).n||'(sin material)'}${Textures.has(id)?'':' · textura genérica'}</small></div>`).join('');
+ document.querySelectorAll('canvas[data-t]').forEach(c=>c.getContext('2d').drawImage(Textures.lod(c.dataset.t,px).canvas,0,0));}
+$('res').onchange=drawTex; drawTex();
+$('walls').innerHTML=ids.map(id=>`<div><canvas data-w="${id}" width="300" height="180"></canvas><div style="text-align:center;color:var(--m)">${id}</div></div>`).join('');
+document.querySelectorAll('canvas[data-w]').forEach(c=>{const g=c.getContext('2d');g.fillStyle='#0d1520';g.fillRect(0,0,300,180);
+  Textures.wall3D(g,c.dataset.w,{x:30,y:150},{x:270,y:110},{x:30,y:50},3,2.8,.12);});
+const fl=Textures.list().filter(i=>i.startsWith('floor_'));
+$('fl').innerHTML=fl.map(id=>`<div class="card"><canvas data-f="${id}" width="256" height="256"></canvas><b>${id}</b><small>${Textures.tile(id)} m por baldosa</small></div>`).join('');
+document.querySelectorAll('canvas[data-f]').forEach(c=>c.getContext('2d').drawImage(Textures.canvas(c.dataset.f),0,0));
+const fill=(el,cat)=>$(el).innerHTML=Icons.list(cat).map(n=>`<div class="ic1">${cat==='devices'?'<div class="bd">'+Icons.svg(cat,n,{anim:n.endsWith('_v2')})+'</div>':Icons.svg(cat,n)}<div>${n}</div></div>`).join('');
+fill('dev','devices');fill('mat','materials');fill('ui','ui');
+const au=Icons.audit();
+$('audit').innerHTML=au.length?'<ul>'+au.map(a=>`<li><code>${a.icon}</code>: ${a.problemas.join(', ')}</li>`).join('')+'</ul>':'✔ Todos los iconos cumplen las reglas.';
+</script>
+</body>
+</html>

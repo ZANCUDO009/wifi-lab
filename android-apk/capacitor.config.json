@@ -1,0 +1,8 @@
+{
+  "appId": "com.wifilab.simulador",
+  "appName": "Wi-Fi Lab",
+  "webDir": "www",
+  "backgroundColor": "#0a111d",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}

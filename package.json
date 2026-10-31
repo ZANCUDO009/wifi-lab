@@ -1,0 +1,32 @@
+{
+  "name": "wifi-lab",
+  "productName": "Wi-Fi Lab",
+  "version": "1.0.0",
+  "description": "Simulador de propagación de ondas Wi-Fi",
+  "author": "Wi-Fi Lab",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.wifilab.simulador",
+    "productName": "Wi-Fi Lab",
+    "files": ["electron/**", "index.html", "css/**", "js/**", "assets/**", "package.json"],
+    "directories": { "output": "dist", "buildResources": "build" },
+    "win": { "icon": "build/icon.png", "target": [{ "target": "nsis", "arch": ["x64"] }, { "target": "portable", "arch": ["x64"] }] },
+    "nsis": {
+      "artifactName": "Wi-Fi-Lab-Instalador-${version}.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Wi-Fi Lab"
+    },
+    "portable": { "artifactName": "Wi-Fi-Lab-Portable-${version}.${ext}" }
+  }
+}
